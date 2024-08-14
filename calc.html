@@ -1,0 +1,104 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Tip Out Sheet Calculator</title>
+  </head>
+  <body>
+    <div class="container">
+      <div class="switch-container">
+        <span class="switch-label">Credit Card</span>
+        <label class="switch">
+          <input type="checkbox" id="toggle" name="toggle" />
+          <span class="slider round"></span>
+        </label>
+        <span class="switch-label">Cash</span>
+      </div>
+
+      <div class="input-group">
+        <span id="input-indicator">Sale:</span>
+        <input type="text" id="amount" placeholder="Enter amount" />
+      </div>
+
+      <div class="keyboard-container">
+        <button onclick="inputDigit(7)">7</button>
+        <button onclick="inputDigit(8)">8</button>
+        <button onclick="inputDigit(9)">9</button>
+        <button onclick="inputDigit(4)">4</button>
+        <button onclick="inputDigit(5)">5</button>
+        <button onclick="inputDigit(6)">6</button>
+        <button onclick="inputDigit(1)">1</button>
+        <button onclick="inputDigit(2)">2</button>
+        <button onclick="inputDigit(3)">3</button>
+        <button onclick="inputDigit(0)">0</button>
+        <button onclick="inputDigit('.')">.</button>
+        <button
+          onclick="deleteDigit()"
+          style="display: flex; justify-content: center; align-items: center"
+        >
+          Del
+        </button>
+      </div>
+
+      <div class="button-group">
+        <button type="button" onclick="submitAmount()">Submit</button>
+      </div>
+      <button type="button" onclick="undoLastEntry()">Undo</button>
+
+      <table>
+        <tbody>
+          <tr>
+            <th></th>
+            <th>Sales</th>
+            <th>Tips</th>
+            <th>Total</th>
+          </tr>
+          <tr>
+            <td>Credit Card Sales</td>
+            <td id="ccSales">0.00</td>
+            <td id="ccTips">0.00</td>
+            <td id="ccTotal">0.00</td>
+          </tr>
+          <tr>
+            <td>Cash Sales</td>
+            <td id="cashSales">0.00</td>
+            <td id="cashTips">0.00</td>
+            <td id="cashTotal">0.00</td>
+          </tr>
+          <tr>
+            <td>Total Sale</td>
+            <td colspan="3" id="totalSales">0.00</td>
+          </tr>
+          <tr>
+            <td>Total Tips</td>
+            <td colspan="3" id="totalTips">0.00</td>
+          </tr>
+          <tr>
+            <td>40% Deduction</td>
+            <td>Tips * 0.4</td>
+            <td colspan="2" id="deduction">0.00</td>
+          </tr>
+        </tbody>
+      </table>
+      <div class="button-group">
+        <button type="button" onclick="resetTable()">Reset</button>
+        <button type="button" onclick="toggleHistory()">Show History</button>
+      </div>
+
+      <table id="historyTable" style="display: none">
+        <thead>
+          <tr>
+            <th>Amount</th>
+            <th>Type</th>
+            <th>Payment Method</th>
+          </tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+
+      <div class="footer">Kaiyo's Calculator :)</div>
+    </div>
+    <script src="script.js"></script>
+  </body>
+</html>
